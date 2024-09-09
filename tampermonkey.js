@@ -52,7 +52,7 @@ console.error = console.warn = console.info = console.debug = () => { };
     document.body.appendChild(buttonn);
     var backbutton = document.createElement("Button");
     backbutton.style.cssText =
-      "BACKGROUND-COLOR: blue;bottom: 0px; right: 0px; position: absolute; z-index: 99999; padding: 3px 2px;";
+      "display:none;BACKGROUND-COLOR: blue;bottom: 0px; right: 0px; position: absolute; z-index: 99999; padding: 3px 2px;";
     backbutton.id = "hamedss";
     backbutton.innerHTML = "Back";
     document.body.appendChild(backbutton);
