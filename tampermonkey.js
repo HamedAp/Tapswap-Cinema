@@ -2,11 +2,14 @@
 // @name         Tapswap
 // @namespace    http://shahanpanel.link
 // @version      2.6
-// @description  try to take over the world!
+// @description  Tapswap Auto Task :)
 // @author       HamedAp & lcarusD
 // @match        https://app.tapswap.club/*
-// @icon         https://www.google.com/s2/favicons?sz=64&domain=tapswap.club
+// @icon         https://www.softportal.com/en/scr/1089/icons/icon_src.png
 // @grant        GM_webRequest
+// @downloadURL  https://raw.githubusercontent.com/HamedAp/Tapswap-Cinema/main/tampermonkey.js
+// @updateURL    https://raw.githubusercontent.com/HamedAp/Tapswap-Cinema/main/tampermonkey.js
+// @homepage     https://github.com/HamedAp/Tapswap-Cinema/
 // @require      https://code.jquery.com/jquery-3.7.1.min.js
 // ==/UserScript==
 (function () {
