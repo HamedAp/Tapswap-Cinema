@@ -86,6 +86,8 @@ function done() {
     const bigObj = JSON.parse(storedText, (key, value, context) => {
       if (key === soal) {
         storedText = value;
+      }else{
+          storedText = "";
       }
       return value;
     });
