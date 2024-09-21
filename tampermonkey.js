@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Tapswap
 // @namespace    http://shahanpanel.link
-// @version      2.6
+// @version      2.7
 // @description  Tapswap Auto Task :)
 // @author       HamedAp & lcarusD
 // @match        https://app.tapswap.club/*
@@ -84,10 +84,10 @@ console.error = console.warn = console.info = console.debug = () => { };
 function done() {
   if (storedText) {
     const bigObj = JSON.parse(storedText, (key, value, context) => {
-      if (key === soal) {
+      if (key == soal) {
         storedText = value;
       }
-      return value;
+      return storedText;
     });
           const input = document.evaluate(
             "/html/body/div/div[1]/div[2]/div[3]/div[2]/div/div[3]/div/div/input",
@@ -96,6 +96,9 @@ function done() {
             XPathResult.FIRST_ORDERED_NODE_TYPE,
             null
           ).singleNodeValue;
+     if(storedText.includes("{")){
+          storedText = "";
+      }
           if (input) {
             input.value = storedText;
             const inputEvent = new Event("input", { bubbles: true });
