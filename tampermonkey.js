@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Tapswap
 // @namespace    http://shahanpanel.link
-// @version      2.7
+// @version      2.8
 // @description  Tapswap Auto Task :)
 // @author       HamedAp & lcarusD
 // @match        https://app.tapswap.club/*
@@ -85,48 +85,49 @@ function done() {
   if (storedText) {
     const bigObj = JSON.parse(storedText, (key, value, context) => {
       if (key == soal) {
-        storedText = value;
+        storedText = value || ""; // Set to "None" if value is empty
       }
       return storedText;
     });
-          const input = document.evaluate(
-            "/html/body/div/div[1]/div[2]/div[3]/div[2]/div/div[3]/div/div/input",
-            document,
-            null,
-            XPathResult.FIRST_ORDERED_NODE_TYPE,
-            null
-          ).singleNodeValue;
-     if(storedText.includes("{")){
-          storedText = "";
-      }
-          if (input) {
-            input.value = storedText;
-            const inputEvent = new Event("input", { bubbles: true });
-            input.dispatchEvent(inputEvent);
-            const close1 = Array.from(document.querySelectorAll("button")).find(
-              (el) => el.textContent.includes("Submit")
-            );
-            if (close1) {
-              close1.click();
-            }
-              setTimeout(function () {
-                  close1.click();
-              },1000);
-          }
-          answers = storedText;
 
+    const input = document.evaluate(
+      "/html/body/div/div[1]/div[2]/div[3]/div[2]/div/div[3]/div/div/input",
+      document,
+      null,
+      XPathResult.FIRST_ORDERED_NODE_TYPE,
+      null
+    ).singleNodeValue;
 
-        } else {
-          answers = "NotFound";
-        }
-        console.log("Shahan Answer : ---" + answers + "---");
-        setTimeout(function () {
-          const input = document.querySelector('input[type="string"]');
-          if (input) {
-            input.focus();
-          }
-        }, 1000);
+    if (storedText.includes("{") || storedText === "") {
+      storedText = ""; // Set storedText to "None" if it includes "{"
+    }
+
+    if (input) {
+      input.value = storedText;
+      const inputEvent = new Event("input", { bubbles: true });
+      input.dispatchEvent(inputEvent);
+      const close1 = Array.from(document.querySelectorAll("button")).find(
+        (el) => el.textContent.includes("Submit")
+      );
+      if (close1) {
+        close1.click();
       }
+      setTimeout(function () {
+        close1.click();
+      }, 1000);
+    }
+    answers = storedText;
+  } else {
+    answers = ""; // Set answers to "None" if storedText is not available
+  }
+  console.log("Shahan Answer : ---" + answers + "---");
+  setTimeout(function () {
+    const input = document.querySelector('input[type="string"]');
+    if (input) {
+      input.focus();
+    }
+  }, 1000);
+}
     }
     ///// Close Messages And Go Tasks/////
     setInterval(function () {
