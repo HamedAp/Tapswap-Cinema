@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Tapswap
 // @namespace    http://shahanpanel.link
-// @version      2.8
+// @version      2.9
 // @description  Tapswap Auto Task :)
 // @author       HamedAp & lcarusD
 // @match        https://app.tapswap.club/*
@@ -151,6 +151,7 @@ function done() {
       const claimm = Array.from(document.querySelectorAll("button")).find((el) => el.textContent.includes("Claim"));
       const startmission = Array.from(document.querySelectorAll("button")).find((el) => el.textContent.includes("Start mission"));
       const perror = Array.from(document.querySelectorAll("p")).find((el) => el.textContent.includes("Looks like you"));
+      const wronganswer = Array.from(document.querySelectorAll("h5")).find((el) => el.textContent.includes("answer"));
       const tasklistcinema = Array.from(document.querySelectorAll("button")).find((el) => el.textContent.includes("Cinema"));
       const tasklistspecial = Array.from(document.querySelectorAll("button")).find((el) => el.textContent.includes("Special"));
       const tasklistleagues = Array.from(document.querySelectorAll("button")).find((el) => el.textContent.includes("Leagues"));
@@ -158,6 +159,9 @@ function done() {
         const watchlink = document.querySelectorAll('a[class^="_link_"]').length;
         if (perror && submitt) {
         submitt.click();
+            backbutton.click();
+        }
+       if (wronganswer && submitt) {
             backbutton.click();
         }
         if (perror && check) {
