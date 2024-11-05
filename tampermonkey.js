@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Tapswap
 // @namespace    http://shahanpanel.link
-// @version      2.9
+// @version      2.10
 // @description  Tapswap Auto Task :)
 // @author       HamedAp & lcarusD
 // @match        https://app.tapswap.club/*
@@ -162,7 +162,9 @@ function done() {
             backbutton.click();
         }
        if (wronganswer && submitt) {
+         setTimeout(function () {
             backbutton.click();
+            }, 5000);
         }
         if (perror && check) {
                check.click();
